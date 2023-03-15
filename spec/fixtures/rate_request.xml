@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <RateRequest xmlns="http://fedex.com/ws/rate/v13">
   <WebAuthenticationDetail>
     <UserCredential>

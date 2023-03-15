@@ -13,7 +13,7 @@ module Fedex
             add_requested_shipment_tag(xml)
           end
         end
-        builder.doc.root.to_xml
+        builder.to_xml
       end
 
       def call
