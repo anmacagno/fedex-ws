@@ -23,6 +23,15 @@ module Fedex
 
       private
 
+      def add_version_tag(xml)
+        xml.Version do
+          xml.ServiceId('crs')
+          xml.Major(13)
+          xml.Intermediate(0)
+          xml.Minor(0)
+        end
+      end
+
       def add_return_transit_and_commit_tag(xml)
         xml.ReturnTransitAndCommit(true)
       end
