@@ -4,10 +4,12 @@ require:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.0
 
 Layout/LineLength:
   Max: 120
 
 Style/Documentation:
+  Enabled: false
+
+Style/HashSyntax:
   Enabled: false
