@@ -3,10 +3,10 @@
 RSpec.shared_context 'with credentials' do
   let(:credentials) do
     {
-      key: 'bkjIgUhxdghtLw9L',
-      password: '6p8oOccHmDwuJZCyJs44wQ0Iw',
-      account_number: '510087720',
-      meter_number: '119238439'
+      key: 'your_key',
+      password: 'your_password',
+      account_number: 'your_account_number',
+      meter_number: 'your_meter_number'
     }
   end
 end

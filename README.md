@@ -1,29 +1,93 @@
-# Fedex::Ws
+# FedEx WS
 
-## Installation
+The objective of this project is the implementation of a client that returns the rates available for a shipment using a FedEx web service.
+
+With this development I want to show some of my skills as a software engineer.
+
+### Prerequisites
+
+- Ruby 3.1.3
+- Bundler 2.4.8
+
+### Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'fedex-ws', '~> 0.1'
+gem 'fedex-ws', '~> 0.1', github: 'anmacagno/fedex-ws'
 ```
 
 And then execute:
 
-    $ bundle install
+```bash
+$ bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install fedex-ws
+```bash
+$ gem install fedex-ws
+```
 
-## Usage
+### Usage
 
-## Development
+```ruby
+credentials = {
+  key: 'your_key',
+  password: 'your_password',
+  account_number: 'your_account_number',
+  meter_number: 'your_meter_number'
+}
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+quote_params = {
+  address_from: {
+    zip: '64000',
+    country: 'mx'
+  },
+  address_to: {
+    zip: '64000',
+    country: 'mx'
+  },
+  parcel: {
+    length: 25.0,
+    width: 28.0,
+    height: 46.0,
+    distance_unit: 'cm',
+    weight: 6.5,
+    mass_unit: 'kg'
+  }
+}
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+rates = Fedex::Rates.get(credentials, quote_params)
+```
 
-## Contributing
+### Example response
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/anmacagno/fedex-ws.
+```ruby
+[
+  {
+    :price=>524.71,
+    :currency=>"MXN",
+    :service_level=>{
+      :name=>"Priority Overnight",
+      :token=>"PRIORITY_OVERNIGHT"
+    }
+  },
+  {
+    :price=>418.49,
+    :currency=>"MXN",
+    :service_level=>{
+      :name=>"Standard Overnight",
+      :token=>"STANDARD_OVERNIGHT"
+    }
+  },
+  {
+    :price=>266.16,
+    :currency=>"MXN",
+    :service_level=>{
+      :name=>"Fedex Express Saver",
+      :token=>"FEDEX_EXPRESS_SAVER"
+    }
+  }
+]
+```

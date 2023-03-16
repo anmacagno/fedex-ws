@@ -2,13 +2,13 @@
 <RateRequest xmlns="http://fedex.com/ws/rate/v13">
   <WebAuthenticationDetail>
     <UserCredential>
-      <Key>bkjIgUhxdghtLw9L</Key>
-      <Password>6p8oOccHmDwuJZCyJs44wQ0Iw</Password>
+      <Key>your_key</Key>
+      <Password>your_password</Password>
     </UserCredential>
   </WebAuthenticationDetail>
   <ClientDetail>
-    <AccountNumber>510087720</AccountNumber>
-    <MeterNumber>119238439</MeterNumber>
+    <AccountNumber>your_account_number</AccountNumber>
+    <MeterNumber>your_meter_number</MeterNumber>
     <Localization>
       <LanguageCode>es</LanguageCode>
       <LocaleCode>mx</LocaleCode>
